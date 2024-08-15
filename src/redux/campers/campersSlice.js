@@ -2,13 +2,16 @@ import { createSlice } from "@reduxjs/toolkit";
 import { getAllCampers, getByIdCampers } from "./operations";
 
 const initialState = {
-  loading: false,
-  error: null,
-  items: [],
+  campers: {
+    loading: false,
+    error: null,
+    items: [],
+  },
+  filters: {},
 };
 
 const campersSlice = createSlice({
-  name: "advert",
+  name: "campers",
   initialState,
   extraReducers: (builder) =>
     builder
@@ -38,6 +41,6 @@ const campersSlice = createSlice({
       }),
 });
 
-export const selectCampers = (state) => state.advert.items;
+export const selectCampers = (state) => state.campers.items;
 
 export const campersReducer = campersSlice.reducer;

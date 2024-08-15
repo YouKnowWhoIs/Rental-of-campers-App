@@ -1,16 +1,21 @@
 import { useSelector } from "react-redux";
+import css from "./campersList.module.css";
 import { selectCampers } from "../../redux/campers/campersSlice";
-// import { Campers } from "../campers/campers";
+import { Campers } from "../campers/campers";
 
 const CampersList = () => {
-  const campers = useSelector(selectCampers);
-  console.log(campers);
+  const filterCampers = useSelector(selectCampers);
+  // console.log(JSON.stringify(campers, null, 2));
 
   return (
-    <ul>
-      {/* {selectCampers.map((campers) => (
-        <Campers key={campers.id} campers={campers} />
-      ))} */}
+    <ul className={css.listConteiner}>
+      {filterCampers && filterCampers.length > 0 ? (
+        filterCampers.map((camper) => (
+          <Campers key={camper._id} camper={camper} />
+        ))
+      ) : (
+        <p>loading...</p>
+      )}
     </ul>
   );
 };

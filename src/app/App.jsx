@@ -1,6 +1,7 @@
 import { lazy, Suspense, useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { Route, Routes } from "react-router-dom";
+import "./App.css";
 import { getAllCampers } from "../redux/campers/operations.js";
 
 const HomePage = lazy(() => import("../pages/homePage/homePage.jsx"));

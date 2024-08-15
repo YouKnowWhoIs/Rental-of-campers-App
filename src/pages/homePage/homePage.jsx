@@ -7,7 +7,6 @@ const HomePage = () => {
     <div className={css.conteiner}>
       <Setting />
       <CampersList />
-      <p>hello</p>
       <button>Load more</button>
     </div>
   );

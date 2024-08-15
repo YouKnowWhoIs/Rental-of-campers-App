@@ -1,0 +1,91 @@
+.list {
+  list-style: none;
+  width: 888px;
+  height: 358px;
+  border: 1px solid rgba(16, 24, 40, 0.2);
+  border-radius: 20px;
+  margin-bottom: 32px;
+  padding: 24px;
+}
+
+.hStyle {
+  margin: 0;
+  font-weight: 600;
+  font-size: 24px;
+  line-height: 125%;
+  float: left;
+}
+
+.imgList {
+  width: 290px;
+  height: 310px;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  float: left;
+  margin-right: 24px;
+}
+
+.priceStyle {
+  float: right;
+  margin: 0;
+  font-weight: 600;
+  font-size: 24px;
+  line-height: 125%;
+}
+
+.conteinerDetails1 {
+  margin: 38px 0 24px 0;
+}
+
+.detailRating {
+  text-decoration: underline;
+  text-decoration-skip-ink: none;
+  padding: 0;
+  margin: 0;
+}
+
+.detailLocation {
+  margin-left: 16px;
+}
+
+.detailImg {
+  margin: 24px 0;
+}
+
+.contrinerDetails2 {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.details {
+  background-color: #f2f4f7;
+  border: 1px solid #f2f4f7;
+  border-radius: 100px;
+  padding: 12px 18px;
+  display: flex;
+  text-align: center;
+  font-weight: 500;
+}
+
+.conteinerButtonDetails {
+  padding-top: 24px;
+}
+
+.buttonDetails {
+  border: 1px solid #e44848;
+  border-radius: 200px;
+  padding: 16px 40px;
+  width: 166px;
+  height: 56px;
+  color: #fff;
+  background-color: #e44848;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 150%;
+  letter-spacing: -0.01em;
+}
+.buttonDetails:hover {
+  background-color: #d84343;
+  cursor: pointer;
+}
