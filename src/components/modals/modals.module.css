@@ -1,0 +1,31 @@
+.backdrop {
+  position: fixed;
+  inset: 0px;
+  background-color: rgba(47, 47, 47, 0.6);
+  z-index: 20;
+  overflow: auto;
+  display: grid;
+  place-items: center;
+}
+
+.conteinerModal {
+  background-color: #fff;
+  padding: 40px;
+  border-radius: 20px;
+  width: 982px;
+}
+
+.conteinerDetails {
+  margin: 8px 0 18px 0;
+}
+
+.camperName {
+  float: left;
+  margin: 5px;
+}
+
+.iconClose {
+  width: 35px;
+  height: 35px;
+  float: right;
+}

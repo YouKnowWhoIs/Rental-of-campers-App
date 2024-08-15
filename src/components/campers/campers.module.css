@@ -1,7 +1,6 @@
 .list {
   list-style: none;
   width: 888px;
-  height: 358px;
   border: 1px solid rgba(16, 24, 40, 0.2);
   border-radius: 20px;
   margin-bottom: 32px;
@@ -18,7 +17,7 @@
 
 .imgList {
   width: 290px;
-  height: 310px;
+  height: 329px;
   border: 1px solid rgba(0, 0, 0, 0.2);
   float: left;
   margin-right: 24px;
@@ -62,10 +61,13 @@
   background-color: #f2f4f7;
   border: 1px solid #f2f4f7;
   border-radius: 100px;
-  padding: 12px 18px;
-  display: flex;
-  text-align: center;
+  padding: 12px 18px 12px 18px;
+}
+
+.detailsAdults {
   font-weight: 500;
+  font-size: 16px;
+  line-height: 125%;
 }
 
 .conteinerButtonDetails {
@@ -88,4 +90,23 @@
 .buttonDetails:hover {
   background-color: #d84343;
   cursor: pointer;
+}
+
+.iconDetails {
+  width: 20px;
+  height: 20px;
+  padding-right: 8px;
+}
+
+.iconStar {
+  color: #ffc531;
+  height: 16px;
+  width: 16px;
+  padding-right: 4px;
+}
+
+.iconLocation {
+  height: 18px;
+  width: 18px;
+  padding-right: 4px;
 }
