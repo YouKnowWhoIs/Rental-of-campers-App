@@ -21,6 +21,7 @@
   border: 1px solid rgba(0, 0, 0, 0.2);
   float: left;
   margin-right: 24px;
+  object-fit: cover;
 }
 
 .priceStyle {
@@ -29,6 +30,12 @@
   font-weight: 600;
   font-size: 24px;
   line-height: 125%;
+}
+
+.buttonLike {
+  margin: 0;
+  border: 0px;
+  background-color: #fff;
 }
 
 .conteinerDetails1 {
@@ -109,4 +116,23 @@
   height: 18px;
   width: 18px;
   padding-right: 4px;
+}
+
+.iconDisableLike {
+  float: right;
+  width: 24px;
+  height: 24px;
+  padding-left: 10px;
+  margin-top: 4px;
+  cursor: pointer;
+}
+
+.iconActivLike {
+  color: #e44848;
+  float: right;
+  width: 24px;
+  height: 24px;
+  padding-left: 10px;
+  margin-top: 4px;
+  cursor: pointer;
 }

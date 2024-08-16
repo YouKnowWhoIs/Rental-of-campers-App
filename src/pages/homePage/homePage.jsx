@@ -1,13 +1,10 @@
-import CampersList from "../../components/campersList/campersList";
-import { Setting } from "../../components/settings/settings";
 import css from "./homePage.module.css";
+import { Navigation } from "../../components/navigation/navigation";
 
 const HomePage = () => {
   return (
     <div className={css.conteiner}>
-      <Setting />
-      <CampersList />
-      <button>Load more</button>
+      <Navigation />
     </div>
   );
 };

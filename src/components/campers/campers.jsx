@@ -1,5 +1,4 @@
-import css from "./campers.module.css";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { BsPeople } from "react-icons/bs";
 import { FaStar } from "react-icons/fa6";
 import { CiLocationOn } from "react-icons/ci";
@@ -8,25 +7,83 @@ import { MdOutlineLocalGasStation, MdOutlineEuro } from "react-icons/md";
 import { TbToolsKitchen2 } from "react-icons/tb";
 import { IoBedOutline } from "react-icons/io5";
 import { FaWind } from "react-icons/fa";
+import css from "./campers.module.css";
+import { FaRegHeart, FaHeart } from "react-icons/fa";
+
 import Modals from "../modals/modals";
 
 export const Campers = ({ camper }) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [isFavorite, setIsFavorite] = useState(false);
+
+  useEffect(() => {
+    const favorites = JSON.parse(localStorage.getItem("favorites")) || [];
+    setIsFavorite(favorites.includes(camper._id));
+  }, [camper._id]);
 
   const handleOpenModal = () => {
     setIsModalOpen(true);
   };
 
+  const handleCloseModal = () => {
+    setIsModalOpen(false);
+  };
+
+  const handleKeyDown = (event) => {
+    if (event.key === "Escape") {
+      handleCloseModal();
+    }
+  };
+
+  const handleBackdropClick = (event) => {
+    if (event.target === event.currentTarget) {
+      handleCloseModal();
+    }
+  };
+
+  if (isModalOpen) {
+    document.addEventListener("keydown", handleKeyDown);
+    document.addEventListener("click", handleBackdropClick);
+  } else {
+    document.removeEventListener("keydown", handleKeyDown);
+    document.removeEventListener("click", handleBackdropClick);
+  }
+
+  const handleFavorite = () => {
+    const favorites = JSON.parse(localStorage.getItem("favorites")) || [];
+
+    if (isFavorite) {
+      const updatedFavorites = favorites.filter((id) => id !== camper._id);
+      localStorage.setItem("favorites", JSON.stringify(updatedFavorites));
+    } else {
+      const updatedFavorites = [...favorites, camper._id];
+      localStorage.setItem("favorites", JSON.stringify(updatedFavorites));
+    }
+
+    setIsFavorite(!isFavorite);
+  };
+
   return (
     <div>
       <li className={css.list}>
-        <img src={camper.gallery} alt={camper.name} className={css.imgList} />
+        <img
+          src={camper.gallery[0]}
+          alt={camper.name}
+          className={css.imgList}
+        />
 
         <div>
           <h1 className={css.hStyle}>{camper.name}</h1>
           <h2 className={css.priceStyle}>
             <MdOutlineEuro />
             {camper.price}.00
+            <button className={css.buttonLike} onClick={handleFavorite}>
+              {isFavorite ? (
+                <FaHeart className={css.iconActivLike} />
+              ) : (
+                <FaRegHeart className={css.iconDisableLike} />
+              )}
+            </button>
           </h2>
         </div>
 
@@ -78,7 +135,13 @@ export const Campers = ({ camper }) => {
         </div>
       </li>
 
-      {isModalOpen && <Modals camper={camper} />}
+      {isModalOpen && (
+        <Modals
+          camper={camper}
+          handleCloseModal={handleCloseModal}
+          handleBackdropClick={handleBackdropClick}
+        />
+      )}
     </div>
   );
 };

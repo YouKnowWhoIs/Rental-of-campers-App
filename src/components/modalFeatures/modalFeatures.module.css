@@ -1,0 +1,52 @@
+.conteinerDetails {
+  margin-top: 20px;
+  float: left;
+}
+
+.detailsList {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  width: 430px;
+}
+
+.details {
+  background-color: #f2f4f7;
+  border: 1px solid #f2f4f7;
+  border-radius: 100px;
+  padding: 12px 18px 12px 18px;
+}
+
+.iconDetails {
+  width: 20px;
+  height: 20px;
+  padding-right: 8px;
+}
+
+.vehicleDetails {
+  margin-top: 44px;
+  padding-bottom: 24px;
+  border-bottom: 1px solid rgba(16, 24, 40, 0.1);
+  width: 430px;
+}
+
+.vehicleDetailsText {
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 120%;
+}
+
+.table {
+  margin-top: 24px;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 133%;
+}
+
+.tableTdName {
+  padding-right: 209px;
+}
+
+.tableTdNumber {
+  text-align: right;
+}

@@ -1,0 +1,39 @@
+.conteinerReviews {
+  margin-top: 44px;
+  width: 430px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 24px;
+}
+
+.imgStyle {
+  width: 60px;
+  height: 60px;
+  border-radius: 60px;
+  border: 1px solid #f2f4f7;
+  background-color: #f2f4f7;
+  float: left;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: 600;
+  font-size: 24px;
+  line-height: 125%;
+  color: #e44848;
+}
+
+.nameStyle {
+  font-weight: 600;
+  font-size: 18px;
+  line-height: 133%;
+  padding: 12px 0 4px 76px;
+}
+
+.starRating {
+  padding-left: 76px;
+}
+
+.commentStyle {
+  color: #475467;
+  margin: 16px 0 0 0;
+}

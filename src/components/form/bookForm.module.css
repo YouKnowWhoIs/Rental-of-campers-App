@@ -1,0 +1,62 @@
+.conteinerBookForm {
+  float: right;
+  width: 448px;
+  border: 1px solid rgba(16, 24, 40, 0.1);
+  border-radius: 20px;
+  width: 428px;
+  padding: 24px;
+  margin: 20px 0 0 0;
+}
+
+.bookCampersStyle {
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 120%;
+}
+
+.textStyle {
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 150%;
+  margin: 8px 0 24px 0;
+  color: #475467;
+}
+
+.valueStyle {
+  border: 1px solid #f7f7f7;
+  border-radius: 10px;
+  background-color: #f7f7f7;
+  padding: 0 0 0 18px;
+  width: 400px;
+  height: 46px;
+  margin-bottom: 14px;
+}
+
+.valueComentStyle {
+  border: 1px solid #f7f7f7;
+  border-radius: 10px;
+  background-color: #f7f7f7;
+  padding: 18px 0 0 18px;
+  width: 400px;
+  height: 96px;
+  margin: 14px 0 24px 0;
+  resize: none;
+}
+
+.formButton {
+  border: 0px;
+  border-radius: 200px;
+  padding: 16px 60px;
+  width: 160px;
+  height: 56px;
+  background-color: #e44848;
+  color: #fff;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 150%;
+  letter-spacing: -0.01em;
+  cursor: pointer;
+}
+.formButton:hover {
+  background-color: #d84343;
+}
