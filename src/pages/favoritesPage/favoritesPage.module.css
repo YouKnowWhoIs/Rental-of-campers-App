@@ -1,3 +1,12 @@
 .conteiner {
   margin: 100px 64px;
 }
+
+.noFavoritesText {
+  font-weight: 600;
+  font-size: 24px;
+  line-height: 125%;
+  display: flex;
+  justify-content: center;
+  padding: 10px;
+}

@@ -2,12 +2,16 @@ import css from "./modals.module.css";
 import { IoClose } from "react-icons/io5";
 import { FaStar } from "react-icons/fa6";
 import { CiLocationOn } from "react-icons/ci";
-import { MdOutlineEuro } from "react-icons/md";
 import { useState } from "react";
 import { ModuleFeatures } from "../modalFeatures/modalFeatures";
 import { ModalReviews } from "../modalReviews/modalReviews";
 
-const Modals = ({ camper, handleCloseModal, handleBackdropClick }) => {
+const Modals = ({
+  camper,
+  formattePrice,
+  handleCloseModal,
+  handleBackdropClick,
+}) => {
   const [activeSection, setActiveSection] = useState("features");
 
   const handleVisibleSection = (section) => {
@@ -32,10 +36,7 @@ const Modals = ({ camper, handleCloseModal, handleBackdropClick }) => {
           </span>
         </div>
         <div>
-          <h2 className={css.priceStyle}>
-            <MdOutlineEuro />
-            {camper.price}.00
-          </h2>
+          <h2 className={css.priceStyle}>{formattePrice}</h2>
         </div>
         <div className={css.conteinerGalleryList}>
           <img className={css.galleryList} src={camper.gallery[0]} />

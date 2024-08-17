@@ -3,7 +3,7 @@ import { BsPeople } from "react-icons/bs";
 import { FaStar } from "react-icons/fa6";
 import { CiLocationOn } from "react-icons/ci";
 import { AiOutlineMerge } from "react-icons/ai";
-import { MdOutlineLocalGasStation, MdOutlineEuro } from "react-icons/md";
+import { MdOutlineLocalGasStation } from "react-icons/md";
 import { TbToolsKitchen2 } from "react-icons/tb";
 import { IoBedOutline } from "react-icons/io5";
 import { FaWind } from "react-icons/fa";
@@ -16,10 +16,11 @@ export const Campers = ({ camper }) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [isFavorite, setIsFavorite] = useState(false);
 
-  useEffect(() => {
-    const favorites = JSON.parse(localStorage.getItem("favorites")) || [];
-    setIsFavorite(favorites.includes(camper._id));
-  }, [camper._id]);
+  const formattePrice = new Intl.NumberFormat("en-GB", {
+    style: "currency",
+    currency: "EUR",
+    currencyDisplay: "symbol",
+  }).format(camper.price);
 
   const handleOpenModal = () => {
     setIsModalOpen(true);
@@ -52,16 +53,42 @@ export const Campers = ({ camper }) => {
   const handleFavorite = () => {
     const favorites = JSON.parse(localStorage.getItem("favorites")) || [];
 
-    if (isFavorite) {
-      const updatedFavorites = favorites.filter((id) => id !== camper._id);
-      localStorage.setItem("favorites", JSON.stringify(updatedFavorites));
-    } else {
-      const updatedFavorites = [...favorites, camper._id];
-      localStorage.setItem("favorites", JSON.stringify(updatedFavorites));
-    }
+    const camperData = {
+      _id: camper._id,
+      name: camper.name,
+      adults: camper.adults,
+      children: camper.children,
+      consumption: camper.consumption,
+      description: camper.description,
+      details: camper.details,
+      engine: camper.engine,
+      form: camper.form,
+      gallery: camper.gallery,
+      height: camper.height,
+      length: camper.length,
+      location: camper.location,
+      price: camper.price,
+      rating: camper.rating,
+      reviews: camper.reviews,
+      tank: camper.tank,
+      transmission: camper.transmission,
+      width: camper.width,
+    };
+
+    const updatedFavorites = isFavorite
+      ? favorites.filter((fav) => fav._id !== camper._id)
+      : [...favorites, camperData];
+    localStorage.setItem("favorites", JSON.stringify(updatedFavorites));
 
     setIsFavorite(!isFavorite);
   };
+
+  useEffect(() => {
+    const storageFavorites =
+      JSON.parse(localStorage.getItem("favorites")) || [];
+    const isFav = storageFavorites.some((fav) => fav._id === camper._id);
+    setIsFavorite(isFav);
+  }, [camper]);
 
   return (
     <div>
@@ -75,8 +102,7 @@ export const Campers = ({ camper }) => {
         <div>
           <h1 className={css.hStyle}>{camper.name}</h1>
           <h2 className={css.priceStyle}>
-            <MdOutlineEuro />
-            {camper.price}.00
+            {formattePrice}
             <button className={css.buttonLike} onClick={handleFavorite}>
               {isFavorite ? (
                 <FaHeart className={css.iconActivLike} />
@@ -138,6 +164,7 @@ export const Campers = ({ camper }) => {
       {isModalOpen && (
         <Modals
           camper={camper}
+          formattePrice={formattePrice}
           handleCloseModal={handleCloseModal}
           handleBackdropClick={handleBackdropClick}
         />

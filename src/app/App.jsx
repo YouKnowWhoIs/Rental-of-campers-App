@@ -3,6 +3,7 @@ import { useDispatch } from "react-redux";
 import { Route, Routes } from "react-router-dom";
 import "./App.css";
 import { getAllCampers } from "../redux/campers/operations.js";
+import { ProgressBarLoader } from "../components/loader/progressBar/progressBar.jsx";
 
 const HomePage = lazy(() => import("../pages/homePage/homePage.jsx"));
 const FavoritesPage = lazy(() =>
@@ -18,7 +19,7 @@ function App() {
   }, [dispatch]);
 
   return (
-    <Suspense fallback={<div>Loading...</div>}>
+    <Suspense fallback={<ProgressBarLoader />}>
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/catalog" element={<CatalogPage />} />
