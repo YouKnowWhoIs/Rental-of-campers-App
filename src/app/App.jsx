@@ -1,6 +1,6 @@
 import { lazy, Suspense, useEffect } from "react";
 import { useDispatch } from "react-redux";
-import { Route, Routes } from "react-router-dom";
+import { Navigate, Route, Routes } from "react-router-dom";
 import "./App.css";
 import { getAllCampers } from "../redux/campers/operations.js";
 import { ProgressBarLoader } from "../components/loader/progressBar/progressBar.jsx";
@@ -24,6 +24,7 @@ function App() {
         <Route path="/" element={<HomePage />} />
         <Route path="/catalog" element={<CatalogPage />} />
         <Route path="/favorites" element={<FavoritesPage />} />
+        <Route path="*" element={<Navigate to="/" replace />} />
       </Routes>
     </Suspense>
   );

@@ -1,5 +1,6 @@
 import css from "./homePage.module.css";
 import { Navigation } from "../../components/navigation/navigation";
+import { HomeWelkome } from "../../components/homeWelcome/homeWelkome";
 
 const HomePage = () => {
   return (
@@ -7,7 +8,7 @@ const HomePage = () => {
       <div className={css.conteiner}>
         <Navigation />
       </div>
-      <div>Welcome!</div>
+      <HomeWelkome />
     </>
   );
 };

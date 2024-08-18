@@ -43,6 +43,11 @@
   resize: none;
 }
 
+.errorMesageStyle {
+  color: #e44848;
+  padding: 0 0 0 10px;
+}
+
 .formButton {
   border: 0px;
   border-radius: 200px;

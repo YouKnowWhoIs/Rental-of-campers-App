@@ -1,13 +1,22 @@
-import { Field, Formik, Form } from "formik";
+import { Field, Formik, Form, ErrorMessage } from "formik";
 import * as Yup from "yup";
 import css from "./bookForm.module.css";
 
 export const BookForm = () => {
   const userSchema = Yup.object().shape({
-    name: Yup.string().required("Name is required"),
+    name: Yup.string().min(3).max(20).required("Name is required"),
     email: Yup.string().email("Invalid email").required("Email is required"),
     bookDate: Yup.date().required("Date is required"),
+    comment: Yup.string().optional(),
   });
+
+  const handleSumbit = (value, { resetForm }) => {
+    console.log("Form data", value);
+
+    resetForm();
+
+    window.location.reload();
+  };
 
   return (
     <div className={css.conteinerBookForm}>
@@ -16,11 +25,10 @@ export const BookForm = () => {
           name: "",
           email: "",
           bookDate: "",
+          comment: "",
         }}
         validationSchema={userSchema}
-        onSubmit={(values) => {
-          console.log(values);
-        }}
+        onSubmit={handleSumbit}
       >
         {({ errors, touched }) => (
           <Form>
@@ -36,7 +44,11 @@ export const BookForm = () => {
               name="name"
               placeholder="Name"
             />
-            {errors.name && touched.name ? <div>{errors.name}</div> : null}
+            <ErrorMessage
+              name="name"
+              className={css.errorMesageStyle}
+              component="span"
+            />
 
             <Field
               className={css.valueStyle}
@@ -45,7 +57,11 @@ export const BookForm = () => {
               placeholder="Email"
               type="email"
             />
-            {errors.email && touched.email ? <div>{errors.email}</div> : null}
+            <ErrorMessage
+              name="email"
+              className={css.errorMesageStyle}
+              component="span"
+            />
 
             <Field
               className={css.valueStyle}
@@ -53,9 +69,11 @@ export const BookForm = () => {
               name="bookDate"
               type="date"
             />
-            {errors.bookDate && touched.bookDate ? (
-              <div>{errors.bookDate}</div>
-            ) : null}
+            <ErrorMessage
+              name="bookDate"
+              className={css.errorMesageStyle}
+              component="span"
+            />
 
             <Field
               as="textarea"
@@ -64,9 +82,6 @@ export const BookForm = () => {
               name="comment"
               placeholder="Comment"
             />
-            {errors.comment && touched.comment ? (
-              <div>{errors.comment}</div>
-            ) : null}
 
             <button className={css.formButton} type="submit">
               Send

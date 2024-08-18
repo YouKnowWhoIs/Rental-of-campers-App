@@ -1,3 +1,101 @@
 .settingConteiner {
-  margin-left: 64px;
+  float: left;
+  margin: 0 64px 0 0;
+  cursor: not-allowed;
+  opacity: 0.5;
 }
+
+.textStyle {
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 150%;
+  color: rgba(16, 24, 40, 0.6);
+  margin: 0 0 8px 0;
+}
+
+.locationInput {
+  border: 0px;
+  border-radius: 10px;
+  background-color: #f7f7f7;
+  margin-bottom: 32px;
+  padding-left: 50px;
+  width: 250px;
+  height: 56px;
+  font-size: 18px;
+  cursor: not-allowed;
+}
+
+.iconLocation {
+  padding: 14px 0 14px 14px;
+  position: absolute;
+  width: 30px;
+  height: 30px;
+}
+
+.styleTextH {
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 120%;
+  margin: 14px 0 0 0;
+}
+
+.styleSpan {
+  border-bottom: 1px solid rgba(16, 24, 40, 0.1);
+  padding-bottom: 24px;
+}
+
+.nameSquere {
+  margin: 24px 0 0 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  width: 300px;
+}
+
+.filterStyle {
+  border: 1px solid rgba(16, 24, 40, 0.1);
+  border-radius: 10px;
+  text-align: center;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 125%;
+  padding: 5px;
+  width: 93px;
+  height: 85px;
+  background-color: #fff;
+  cursor: not-allowed;
+}
+/* .filterStyle:hover {
+  background-color: #f7f7f7;
+} */
+
+.iconFilterStyle {
+  width: 25px;
+  height: 25px;
+  padding: 0 20px;
+}
+
+.iconCamperStyle {
+  width: 40px;
+  height: 30px;
+  padding: 0 20px;
+}
+
+.buttonStyle {
+  border: 1px solid #e44848;
+  border-radius: 200px;
+  padding: 16px 40px;
+  margin-top: 64px;
+  width: 166px;
+  height: 56px;
+  color: #fff;
+  background-color: #e44848;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 150%;
+  letter-spacing: -0.01em;
+  cursor: not-allowed;
+}
+/* .buttonStyle:hover {
+  background-color: #d84343;
+} */

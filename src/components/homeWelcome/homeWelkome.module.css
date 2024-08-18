@@ -1,0 +1,81 @@
+.conteinerWelkome {
+  margin: 0 64px;
+}
+
+.styleText1 {
+  width: 860px;
+}
+
+.conteinerListDetails {
+  margin: 0 0 20px 0;
+  list-style: none;
+}
+
+.liText1 {
+  width: 600px;
+  padding-top: 20px;
+}
+
+.liText2 {
+  width: 600px;
+  padding-top: 20px;
+}
+
+.styleFirstH {
+  font-weight: 600;
+  font-size: 24px;
+  line-height: 125%;
+  margin: 0;
+}
+
+.styleSecondH {
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 125%;
+  margin: 0;
+}
+
+.navLinkStyle {
+  cursor: pointer;
+  margin-left: 10px;
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 125%;
+  color: #e44848;
+}
+
+.conteinerimgStyle {
+  display: flex;
+  position: absolute;
+  left: 700px;
+}
+
+.imgStyle {
+  z-index: 20;
+}
+
+.circleStyle1 {
+  display: flex;
+  width: 200px;
+  height: 200px;
+  background-color: #e44848;
+  border: 1px solid #e44848;
+  border-radius: 100px;
+  position: absolute;
+  top: 70px;
+  left: 50px;
+  z-index: 10;
+}
+
+.circleStyle2 {
+  display: flex;
+  width: 300px;
+  height: 300px;
+  background-color: aquamarine;
+  border: 1px solid aquamarine;
+  border-radius: 200px;
+  z-index: 10;
+  position: absolute;
+  top: 300px;
+  left: 400px;
+}

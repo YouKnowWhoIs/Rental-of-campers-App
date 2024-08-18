@@ -3,6 +3,7 @@ import css from "./campersList.module.css";
 import { selectCampers } from "../../redux/campers/campersSlice";
 import { Campers } from "../campers/campers";
 import { useState } from "react";
+import { HeartsBarLoader } from "../loader/heartsBar/heartsBar";
 
 const CampersList = () => {
   const [visibleCount, setVisibleCount] = useState(4);
@@ -13,7 +14,7 @@ const CampersList = () => {
   };
 
   if (!filterCampers || filterCampers.length === 0) {
-    return <p>Loading...</p>;
+    return <HeartsBarLoader />;
   }
 
   return (
