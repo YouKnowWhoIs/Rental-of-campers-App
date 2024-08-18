@@ -20,12 +20,12 @@ const CampersList = () => {
   return (
     <div>
       <ul className={css.listConteiner}>
-        {filterCampers && filterCampers.length > 0 ? (
+        {filterCampers.length > 0 ? (
           filterCampers
             .slice(0, visibleCount)
             .map((camper) => <Campers key={camper._id} camper={camper} />)
         ) : (
-          <p>loading...</p>
+          <HeartsBarLoader />
         )}
       </ul>
 

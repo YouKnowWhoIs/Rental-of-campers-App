@@ -44,12 +44,17 @@
   padding-bottom: 24px;
 }
 
-.nameSquere {
+.nameSquare {
   margin: 24px 0 0 0;
   display: flex;
   flex-wrap: wrap;
   gap: 10px;
-  width: 300px;
+  width: 320px;
+}
+
+.hiddenCheckbox,
+.hiddenRadio {
+  display: none;
 }
 
 .filterStyle {
@@ -59,26 +64,28 @@
   font-weight: 500;
   font-size: 16px;
   line-height: 125%;
-  padding: 5px;
   width: 93px;
   height: 85px;
   background-color: #fff;
   cursor: not-allowed;
 }
-/* .filterStyle:hover {
+.filterStyle:hover {
   background-color: #f7f7f7;
-} */
+}
+.filterStyle.active {
+  border-color: #e44848;
+}
 
 .iconFilterStyle {
   width: 25px;
   height: 25px;
-  padding: 0 20px;
+  padding: 15px 25px 0 25px;
 }
 
 .iconCamperStyle {
   width: 40px;
   height: 30px;
-  padding: 0 20px;
+  padding: 7px 25px 0 25px;
 }
 
 .buttonStyle {
@@ -96,6 +103,6 @@
   letter-spacing: -0.01em;
   cursor: not-allowed;
 }
-/* .buttonStyle:hover {
+.buttonStyle:hover {
   background-color: #d84343;
-} */
+}

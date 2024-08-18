@@ -4,13 +4,16 @@ import css from "./bookForm.module.css";
 
 export const BookForm = () => {
   const userSchema = Yup.object().shape({
-    name: Yup.string().min(3).max(20).required("Name is required"),
+    name: Yup.string()
+      .min(3, "must be more than 2!")
+      .max(20, "Name can't be longer than 20 characters")
+      .required("Name is required"),
     email: Yup.string().email("Invalid email").required("Email is required"),
     bookDate: Yup.date().required("Date is required"),
-    comment: Yup.string().optional(),
+    comment: Yup.string().max(150, "Comment is too long!"),
   });
 
-  const handleSumbit = (value, { resetForm }) => {
+  const handleSubmit = (value, { resetForm }) => {
     console.log("Form data", value);
 
     resetForm();
@@ -28,7 +31,7 @@ export const BookForm = () => {
           comment: "",
         }}
         validationSchema={userSchema}
-        onSubmit={handleSumbit}
+        onSubmit={handleSubmit}
       >
         {({ errors, touched }) => (
           <Form>
@@ -46,8 +49,8 @@ export const BookForm = () => {
             />
             <ErrorMessage
               name="name"
-              className={css.errorMesageStyle}
               component="span"
+              className={css.errorMesageStyle}
             />
 
             <Field
@@ -59,8 +62,8 @@ export const BookForm = () => {
             />
             <ErrorMessage
               name="email"
-              className={css.errorMesageStyle}
               component="span"
+              className={css.errorMesageStyle}
             />
 
             <Field
@@ -71,8 +74,8 @@ export const BookForm = () => {
             />
             <ErrorMessage
               name="bookDate"
-              className={css.errorMesageStyle}
               component="span"
+              className={css.errorMesageStyle}
             />
 
             <Field

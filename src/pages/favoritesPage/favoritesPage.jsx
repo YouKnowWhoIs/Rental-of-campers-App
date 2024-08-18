@@ -12,8 +12,6 @@ const FavoritesPage = () => {
     const data = storageFavorites ? JSON.parse(storageFavorites) : [];
 
     setIsFavoriteList(data);
-
-    console.log(data);
   }, []);
 
   return (
@@ -27,7 +25,7 @@ const FavoritesPage = () => {
             <Campers key={camper._id} camper={camper} />
           ))
         ) : (
-          <div>
+          <div className={css.favoriteStyle}>
             <HeartsBarLoader />
             <span className={css.noFavoritesText}>
               No favorites yet. But you can fix it!

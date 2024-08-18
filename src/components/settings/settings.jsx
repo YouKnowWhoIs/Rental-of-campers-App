@@ -8,8 +8,30 @@ import { TbCamper } from "react-icons/tb";
 import { RiCaravanLine } from "react-icons/ri";
 import { FaCaravan } from "react-icons/fa";
 import css from "./settings.module.css";
+import { useState } from "react";
 
 export const Setting = () => {
+  const [filters, setFilters] = useState({
+    ac: false,
+    automatic: false,
+    kitchen: false,
+    tv: false,
+    shower: false,
+  });
+  const [selectedVehicleType, setSelectedVehicleType] = useState("");
+
+  const handleCheckboxChange = (event) => {
+    const { name } = event.target;
+    setFilters((prevFilters) => ({
+      ...prevFilters,
+      [name]: !prevFilters[name],
+    }));
+  };
+
+  const handleRadioChange = (event) => {
+    setSelectedVehicleType(event.target.value);
+  };
+
   return (
     <div className={css.settingConteiner}>
       <div>
@@ -18,53 +40,148 @@ export const Setting = () => {
         <input
           className={css.locationInput}
           type="text"
-          placeholder="Location"
+          placeholder="City, Country"
         />
       </div>
       <div className={css.styleSpan}>
         <p className={css.textStyle}>Filter</p>
         <h3 className={css.styleTextH}>Vehicle equipment</h3>
       </div>
-      <div className={css.nameSquere}>
-        <button type="button" className={css.filterStyle}>
+      <div className={css.nameSquare}>
+        <label
+          className={`${css.filterStyle} ${filters.ac ? css.active : ""}`}
+          onClick={() => handleCheckboxChange({ target: { name: "ac" } })}
+        >
+          <input
+            type="checkbox"
+            name="ac"
+            checked={filters.ac}
+            onChange={handleCheckboxChange}
+            className={css.hiddenCheckbox}
+          />
           <FaWind className={css.iconFilterStyle} />
           AC
-        </button>
-        <button type="button" className={css.filterStyle}>
+        </label>
+        <label
+          className={`${css.filterStyle} ${
+            filters.automatic ? css.active : ""
+          }`}
+          onClick={() =>
+            handleCheckboxChange({ target: { name: "automatic" } })
+          }
+        >
+          <input
+            type="checkbox"
+            name="automatic"
+            checked={filters.automatic}
+            onChange={handleCheckboxChange}
+            className={css.hiddenCheckbox}
+          />
           <AiOutlineMerge className={css.iconFilterStyle} />
           Automatic
-        </button>
-        <button type="button" className={css.filterStyle}>
+        </label>
+        <label
+          className={`${css.filterStyle} ${filters.kitchen ? css.active : ""}`}
+          onClick={() => handleCheckboxChange({ target: { name: "kitchen" } })}
+        >
+          <input
+            type="checkbox"
+            name="kitchen"
+            checked={filters.kitchen}
+            onChange={handleCheckboxChange}
+            className={css.hiddenCheckbox}
+          />
           <TbToolsKitchen2 className={css.iconFilterStyle} />
           Kitchen
-        </button>
-        <button type="button" className={css.filterStyle}>
+        </label>
+        <label
+          className={`${css.filterStyle} ${filters.tv ? css.active : ""}`}
+          onClick={() => handleCheckboxChange({ target: { name: "tv" } })}
+        >
+          <input
+            type="checkbox"
+            name="tv"
+            checked={filters.tv}
+            onChange={handleCheckboxChange}
+            className={css.hiddenCheckbox}
+          />
           <FiTv className={css.iconFilterStyle} />
           TV
-        </button>
-        <button type="button" className={css.filterStyle}>
+        </label>
+        <label
+          className={`${css.filterStyle} ${filters.shower ? css.active : ""}`}
+          onClick={() => handleCheckboxChange({ target: { name: "shower" } })}
+        >
+          <input
+            type="checkbox"
+            name="shower"
+            checked={filters.shower}
+            onChange={handleCheckboxChange}
+            className={css.hiddenCheckbox}
+          />
           <LuShowerHead className={css.iconFilterStyle} />
           Shower/WC
-        </button>
+        </label>
       </div>
+
       <div className={css.styleSpan}>
         <h3 className={css.styleTextH}>Vehicle type</h3>
       </div>
-      <div className={css.nameSquere}>
-        <button className={css.filterStyle} type="button">
+      <div className={css.nameSquare}>
+        <label
+          className={`${css.filterStyle} ${
+            selectedVehicleType === "van" ? css.active : ""
+          }`}
+          onClick={() => setSelectedVehicleType("van")}
+        >
+          <input
+            type="radio"
+            name="vehicleType"
+            value="van"
+            checked={selectedVehicleType === "van"}
+            onChange={handleRadioChange}
+            className={css.hiddenRadio}
+          />
           <TbCamper className={css.iconCamperStyle} />
           Van
-        </button>
-        <button className={css.filterStyle} type="button">
+        </label>
+        <label
+          className={`${css.filterStyle} ${
+            selectedVehicleType === "fully-integrated" ? css.active : ""
+          }`}
+          onClick={() => setSelectedVehicleType("fully-integrated")}
+        >
+          <input
+            type="radio"
+            name="vehicleType"
+            value="fully-integrated"
+            checked={selectedVehicleType === "fully-integrated"}
+            onChange={handleRadioChange}
+            className={css.hiddenRadio}
+          />
           <FaCaravan className={css.iconCamperStyle} />
           Fully Integrated
-        </button>
-        <button className={css.filterStyle} type="button">
+        </label>
+        <label
+          className={`${css.filterStyle} ${
+            selectedVehicleType === "alcove" ? css.active : ""
+          }`}
+          onClick={() => setSelectedVehicleType("alcove")}
+        >
+          <input
+            type="radio"
+            name="vehicleType"
+            value="alcove"
+            checked={selectedVehicleType === "alcove"}
+            onChange={handleRadioChange}
+            className={css.hiddenRadio}
+          />
           <RiCaravanLine className={css.iconCamperStyle} />
           Alcove
-        </button>
+        </label>
       </div>
-      <button className={css.buttonStyle} type="submit">
+
+      <button className={css.buttonStyle} type="button">
         Search
       </button>
     </div>
