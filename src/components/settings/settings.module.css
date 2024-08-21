@@ -1,8 +1,8 @@
 .settingConteiner {
   float: left;
   margin: 0 64px 0 0;
-  cursor: not-allowed;
-  opacity: 0.5;
+  /* cursor: not-allowed;
+  opacity: 0.5; */
 }
 
 .textStyle {
@@ -22,7 +22,7 @@
   width: 250px;
   height: 56px;
   font-size: 18px;
-  cursor: not-allowed;
+  /* cursor: not-allowed; */
 }
 
 .iconLocation {
@@ -67,7 +67,7 @@
   width: 93px;
   height: 85px;
   background-color: #fff;
-  cursor: not-allowed;
+  /* cursor: not-allowed; */
 }
 .filterStyle:hover {
   background-color: #f7f7f7;
@@ -101,7 +101,7 @@
   font-size: 16px;
   line-height: 150%;
   letter-spacing: -0.01em;
-  cursor: not-allowed;
+  /* cursor: not-allowed; */
 }
 .buttonStyle:hover {
   background-color: #d84343;

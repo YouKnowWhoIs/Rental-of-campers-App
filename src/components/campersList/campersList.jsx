@@ -1,6 +1,9 @@
 import { useSelector } from "react-redux";
 import css from "./campersList.module.css";
-import { selectCampers } from "../../redux/campers/campersSlice";
+import {
+  selectCampers,
+  selectFilteredCampers,
+} from "../../redux/campers/campersSlice";
 import { Campers } from "../campers/campers";
 import { useState } from "react";
 import { HeartsBarLoader } from "../loader/heartsBar/heartsBar";
@@ -8,6 +11,9 @@ import { HeartsBarLoader } from "../loader/heartsBar/heartsBar";
 const CampersList = () => {
   const [visibleCount, setVisibleCount] = useState(4);
   const filterCampers = useSelector(selectCampers);
+  const test = useSelector(selectFilteredCampers);
+
+  console.log(test);
 
   const handleShowMore = () => {
     setVisibleCount((prevCount) => prevCount + 4);
