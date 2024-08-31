@@ -1,13 +1,11 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { getAllCampers } from "./operations";
+// import { changeFilter } from "../filter/filtersSlice";
 
 const initialState = {
-  campers: {
-    loading: false,
-    error: null,
-    items: [],
-  },
-  filters: {},
+  loading: false,
+  error: null,
+  items: [],
 };
 
 const campersSlice = createSlice({
@@ -28,7 +26,5 @@ const campersSlice = createSlice({
         state.error = action.payload;
       }),
 });
-
-export const selectCampers = (state) => state.campers.items;
 
 export const campersReducer = campersSlice.reducer;
