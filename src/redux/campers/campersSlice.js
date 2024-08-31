@@ -1,22 +1,11 @@
-import { createSelector, createSlice } from "@reduxjs/toolkit";
+import { createSlice } from "@reduxjs/toolkit";
 import { getAllCampers } from "./operations";
-import {
-  selectAirConditionerFilter,
-  selectKitchenFilter,
-  selectShowerFilter,
-  selectTransmissionFilter,
-  selectTVFilter,
-} from "../filter/filtersSlice";
+// import { changeFilter } from "../filter/filtersSlice";
 
 const initialState = {
-  campers: {
-    loading: false,
-    error: null,
-    items: [],
-  },
-  filters: {
-    location: "",
-  },
+  loading: false,
+  error: null,
+  items: [],
 };
 
 const campersSlice = createSlice({
@@ -38,58 +27,4 @@ const campersSlice = createSlice({
       }),
 });
 
-export const selectCampers = (state) => state.campers.items;
-
 export const campersReducer = campersSlice.reducer;
-
-export const selectFilteredCampers = createSelector(
-  [
-    selectCampers,
-    selectAirConditionerFilter,
-    selectTransmissionFilter,
-    selectKitchenFilter,
-    selectTVFilter,
-    selectShowerFilter,
-  ],
-  (
-    campers,
-    filterAirConditioner,
-    filterTransmission,
-    filterKitchen,
-    filterTV,
-    filterShower
-  ) => {
-    if (
-      !filterAirConditioner &&
-      !filterTransmission &&
-      !filterKitchen &&
-      !filterTV &&
-      !filterShower
-    )
-      return campers;
-
-    let filteredCampers = campers;
-
-    if (filterAirConditioner) {
-      filteredCampers = filteredCampers.filter(
-        (camper) => camper.airConditioner
-      );
-    }
-    if (filterTransmission) {
-      filteredCampers = filteredCampers.filter(
-        (camper) => camper.transmission === filterTransmission
-      );
-    }
-    if (filterKitchen) {
-      filteredCampers = filteredCampers.filter((camper) => camper.kitchen);
-    }
-    if (filterTV) {
-      filteredCampers = filteredCampers.filter((camper) => camper.TV);
-    }
-    if (filterShower) {
-      filteredCampers = filteredCampers.filter((camper) => camper.shower);
-    }
-
-    return filteredCampers;
-  }
-);

@@ -1,22 +1,47 @@
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import css from "./campersList.module.css";
 import {
-  selectCampers,
+  // selectCampers,
   selectFilteredCampers,
-} from "../../redux/campers/campersSlice";
+} from "../../redux/campers/selectors.js";
 import { Campers } from "../campers/campers";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { HeartsBarLoader } from "../loader/heartsBar/heartsBar";
+import { changeFilter } from "../../redux/filter/filtersSlice.js";
 
 const CampersList = () => {
-  const [visibleCount, setVisibleCount] = useState(4);
-  const filterCampers = useSelector(selectCampers);
-  const test = useSelector(selectFilteredCampers);
+  const dispatch = useDispatch();
 
-  console.log(test);
+  const [visibleCount, setVisibleCount] = useState(4);
+  const filterCampers = useSelector(selectFilteredCampers);
+
+  useEffect(() => {
+    dispatch(
+      changeFilter({
+        location: "",
+        ac: false,
+        automatic: false,
+        kitchen: false,
+        tv: false,
+        shower: false,
+        vehicleType: "",
+      })
+    );
+  }, [dispatch]);
+
+  const initialValues = {
+    location: "",
+    ac: false,
+    automatic: false,
+    kitchen: false,
+    tv: false,
+    shower: false,
+    vehicleType: "",
+  };
 
   const handleShowMore = () => {
     setVisibleCount((prevCount) => prevCount + 4);
+    dispatch(changeFilter(initialValues));
   };
 
   if (!filterCampers || filterCampers.length === 0) {
@@ -24,7 +49,7 @@ const CampersList = () => {
   }
 
   return (
-    <div>
+    <>
       <ul className={css.listConteiner}>
         {filterCampers.length > 0 ? (
           filterCampers
@@ -42,7 +67,7 @@ const CampersList = () => {
           </button>
         </div>
       )}
-    </div>
+    </>
   );
 };
 
