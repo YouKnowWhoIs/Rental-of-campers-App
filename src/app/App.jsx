@@ -2,7 +2,7 @@ import { lazy, Suspense, useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { Navigate, Route, Routes } from "react-router-dom";
 import "./App.css";
-import { getAllCampers } from "../redux/campers/operations.js";
+import { getStartCampers } from "../redux/campers/operations.js";
 import { ProgressBarLoader } from "../components/loader/progressBar/progressBar.jsx";
 
 const HomePage = lazy(() => import("../pages/homePage/homePage.jsx"));
@@ -15,7 +15,7 @@ function App() {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(getAllCampers());
+    dispatch(getStartCampers());
   }, [dispatch]);
 
   return (

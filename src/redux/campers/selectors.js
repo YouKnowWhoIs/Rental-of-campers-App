@@ -1,5 +1,7 @@
 import { createSelector } from "@reduxjs/toolkit";
 
+export const selectPages = (state) => state.campers.page;
+
 const selectCampers = (state) => state.campers.items;
 
 const selectFilterDetails = (state) => state.filters.details;

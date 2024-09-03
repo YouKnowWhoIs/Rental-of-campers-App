@@ -1,33 +1,39 @@
 import { useDispatch, useSelector } from "react-redux";
 import css from "./campersList.module.css";
 import {
-  // selectCampers,
   selectFilteredCampers,
+  selectPages,
 } from "../../redux/campers/selectors.js";
 import { Campers } from "../campers/campers";
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { HeartsBarLoader } from "../loader/heartsBar/heartsBar";
 import { changeFilter } from "../../redux/filter/filtersSlice.js";
+import { getStartCampers } from "../../redux/campers/operations.js";
+import { incrementPage } from "../../redux/campers/campersSlice.js";
 
 const CampersList = () => {
   const dispatch = useDispatch();
 
-  const [visibleCount, setVisibleCount] = useState(4);
   const filterCampers = useSelector(selectFilteredCampers);
+  const page = useSelector(selectPages);
+  const visibleCount = filterCampers.length > 0;
 
   useEffect(() => {
-    dispatch(
-      changeFilter({
-        location: "",
-        ac: false,
-        automatic: false,
-        kitchen: false,
-        tv: false,
-        shower: false,
-        vehicleType: "",
-      })
-    );
-  }, [dispatch]);
+    if (page === 1) {
+      dispatch(getStartCampers());
+      dispatch(
+        changeFilter({
+          location: "",
+          ac: false,
+          automatic: false,
+          kitchen: false,
+          tv: false,
+          shower: false,
+          vehicleType: "",
+        })
+      );
+    }
+  }, [dispatch, page]);
 
   const initialValues = {
     location: "",
@@ -40,27 +46,23 @@ const CampersList = () => {
   };
 
   const handleShowMore = () => {
-    setVisibleCount((prevCount) => prevCount + 4);
+    dispatch(incrementPage());
     dispatch(changeFilter(initialValues));
   };
-
-  if (!filterCampers || filterCampers.length === 0) {
-    return <HeartsBarLoader />;
-  }
 
   return (
     <>
       <ul className={css.listConteiner}>
         {filterCampers.length > 0 ? (
-          filterCampers
-            .slice(0, visibleCount)
-            .map((camper) => <Campers key={camper._id} camper={camper} />)
+          filterCampers.map((camper) => (
+            <Campers key={camper._id} camper={camper} />
+          ))
         ) : (
           <HeartsBarLoader />
         )}
       </ul>
 
-      {visibleCount < filterCampers.length && (
+      {visibleCount && (
         <div className={css.conteinerButtonLoadMore}>
           <button className={css.buttonLoadMore} onClick={handleShowMore}>
             Load more
