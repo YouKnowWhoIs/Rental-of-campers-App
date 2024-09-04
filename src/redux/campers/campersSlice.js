@@ -31,7 +31,7 @@ const initialState = {
 const campersSlice = createSlice({
   name: "campers",
   initialState,
-  reduser: {
+  reducers: {
     incrementPage(state) {
       state.page += 1;
     },

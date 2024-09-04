@@ -5,10 +5,10 @@ axios.defaults.baseURL = "https://66bc754524da2de7ff6a9bf5.mockapi.io/";
 const perPage = 4;
 
 export const getStartCampers = createAsyncThunk(
-  "advert/getStartCampers",
+  "camper/getStartCampers",
   async (_, thunkApi) => {
     try {
-      const res = await axios.get(`/advert?page=1&limit=${perPage}`);
+      const res = await axios.get(`/camper?page=1&limit=${perPage}`);
 
       console.log(res.data);
 
@@ -20,10 +20,10 @@ export const getStartCampers = createAsyncThunk(
 );
 
 export const fetchCampers = createAsyncThunk(
-  "advert/fetchCampers",
+  "camper/fetchCampers",
   async (page, thunkApi) => {
     try {
-      const res = await axios.get(`/advert?page=${page}&limit=${perPage}`);
+      const res = await axios.get(`/camper?page=${page}&limit=${perPage}`);
 
       console.log(res.data);
 

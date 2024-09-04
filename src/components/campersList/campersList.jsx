@@ -2,7 +2,8 @@ import { useDispatch, useSelector } from "react-redux";
 import css from "./campersList.module.css";
 import {
   selectFilteredCampers,
-  selectPages,
+  selectLastPages,
+  selectPage,
 } from "../../redux/campers/selectors.js";
 import { Campers } from "../campers/campers";
 import { useEffect } from "react";
@@ -12,10 +13,11 @@ import { getStartCampers } from "../../redux/campers/operations.js";
 import { incrementPage } from "../../redux/campers/campersSlice.js";
 
 const CampersList = () => {
+  const lastPage = useSelector(selectLastPages);
   const dispatch = useDispatch();
 
   const filterCampers = useSelector(selectFilteredCampers);
-  const page = useSelector(selectPages);
+  const page = useSelector(selectPage);
   const visibleCount = filterCampers.length > 0;
 
   useEffect(() => {
@@ -46,14 +48,14 @@ const CampersList = () => {
   };
 
   const handleShowMore = () => {
-    dispatch(incrementPage());
     dispatch(changeFilter(initialValues));
+    dispatch(incrementPage());
   };
 
   return (
     <>
       <ul className={css.listConteiner}>
-        {filterCampers.length > 0 ? (
+        {visibleCount ? (
           filterCampers.map((camper) => (
             <Campers key={camper._id} camper={camper} />
           ))
@@ -62,7 +64,7 @@ const CampersList = () => {
         )}
       </ul>
 
-      {visibleCount && (
+      {visibleCount && !lastPage && (
         <div className={css.conteinerButtonLoadMore}>
           <button className={css.buttonLoadMore} onClick={handleShowMore}>
             Load more
