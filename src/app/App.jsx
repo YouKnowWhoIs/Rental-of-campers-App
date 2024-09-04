@@ -1,9 +1,11 @@
 import { lazy, Suspense, useEffect } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { Navigate, Route, Routes } from "react-router-dom";
 import "./App.css";
-import { getAllCampers } from "../redux/campers/operations.js";
+import { fetchCampers } from "../redux/campers/operations.js";
 import { ProgressBarLoader } from "../components/loader/progressBar/progressBar.jsx";
+import { selectPage } from "../redux/campers/selectors.js";
+import { changeFilter } from "../redux/filter/filtersSlice.js";
 
 const HomePage = lazy(() => import("../pages/homePage/homePage.jsx"));
 const FavoritesPage = lazy(() =>
@@ -13,10 +15,24 @@ const CatalogPage = lazy(() => import("../pages/catalogPage/catalogPage.jsx"));
 
 function App() {
   const dispatch = useDispatch();
+  const page = useSelector(selectPage);
 
   useEffect(() => {
-    dispatch(getAllCampers());
-  }, [dispatch]);
+    if (page > 1) {
+      dispatch(fetchCampers(page));
+      dispatch(
+        changeFilter({
+          location: "",
+          ac: false,
+          automatic: false,
+          kitchen: false,
+          tv: false,
+          shower: false,
+          vehicleType: "",
+        })
+      );
+    }
+  }, [dispatch, page]);
 
   return (
     <Suspense fallback={<ProgressBarLoader />}>
