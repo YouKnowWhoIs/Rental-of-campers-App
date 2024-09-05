@@ -1,6 +1,7 @@
 import { useDispatch, useSelector } from "react-redux";
 import css from "./campersList.module.css";
 import {
+  selectError,
   selectFilteredCampers,
   selectLastPages,
   selectPage,
@@ -16,6 +17,7 @@ const CampersList = () => {
   const lastPage = useSelector(selectLastPages);
   const dispatch = useDispatch();
 
+  const error = useSelector(selectError);
   const filterCampers = useSelector(selectFilteredCampers);
   const page = useSelector(selectPage);
   const visibleCount = filterCampers.length > 0;
@@ -26,12 +28,12 @@ const CampersList = () => {
       dispatch(
         changeFilter({
           location: "",
-          ac: false,
+          airConditioner: false,
           automatic: false,
           kitchen: false,
-          tv: false,
+          TV: false,
           shower: false,
-          vehicleType: "",
+          type: "",
         })
       );
     }
@@ -39,12 +41,12 @@ const CampersList = () => {
 
   const initialValues = {
     location: "",
-    ac: false,
+    airConditioner: false,
     automatic: false,
     kitchen: false,
-    tv: false,
+    TV: false,
     shower: false,
-    vehicleType: "",
+    type: "",
   };
 
   const handleShowMore = () => {
@@ -55,6 +57,7 @@ const CampersList = () => {
   return (
     <>
       <ul className={css.listConteiner}>
+        {error && <h3>Something went wrong!</h3>}
         {visibleCount ? (
           filterCampers.map((camper) => (
             <Campers key={camper._id} camper={camper} />

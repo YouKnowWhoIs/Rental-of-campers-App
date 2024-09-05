@@ -23,12 +23,12 @@ function App() {
       dispatch(
         changeFilter({
           location: "",
-          ac: false,
+          airConditioner: false,
           automatic: false,
           kitchen: false,
-          tv: false,
+          TV: false,
           shower: false,
-          vehicleType: "",
+          type: "",
         })
       );
     }

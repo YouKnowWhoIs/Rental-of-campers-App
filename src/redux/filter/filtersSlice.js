@@ -4,7 +4,7 @@ const initialState = {
   location: "",
   details: {
     airConditioner: 0,
-    transmission: "",
+    automatic: false,
     kitchen: 0,
     TV: 0,
     shower: 0,
@@ -16,15 +16,14 @@ const filtersSlice = createSlice({
   name: "filters",
   initialState,
   reducers: {
-    // changeFilterLocation: (state, action) => {
-    //   state.filters.location = action.payload;
-    // },
     changeFilter(state, action) {
       state.details.airConditioner = action.payload.airConditioner;
-      state.details.transmission = action.payload.transmission;
+      state.details.automatic = action.payload.automatic;
       state.details.kitchen = action.payload.kitchen;
       state.details.TV = action.payload.TV;
       state.details.shower = action.payload.shower;
+      state.location = action.payload.location;
+      state.type = action.payload.type;
     },
   },
 });

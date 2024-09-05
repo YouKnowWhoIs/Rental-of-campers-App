@@ -12,17 +12,17 @@ import { Field, Form, Formik } from "formik";
 import { useDispatch } from "react-redux";
 import { changeFilter } from "../../redux/filter/filtersSlice";
 
-export const Setting = () => {
+export const Settings = () => {
   const dispatch = useDispatch();
 
   const initialValues = {
     location: "",
-    ac: false,
+    airConditioner: false,
     automatic: false,
     kitchen: false,
-    tv: false,
+    TV: false,
     shower: false,
-    vehicleType: "",
+    type: "",
   };
 
   const handleSubmit = (values) => {
@@ -51,7 +51,11 @@ export const Setting = () => {
 
         <div className={css.nameSquare}>
           <label className={css.filterStyle}>
-            <Field type="checkbox" name="ac" className={css.hiddenCheckbox} />
+            <Field
+              type="checkbox"
+              name="airConditioner"
+              className={css.hiddenCheckbox}
+            />
             <FaWind className={css.iconFilterStyle} />
             <span>AC</span>
           </label>
@@ -77,7 +81,7 @@ export const Setting = () => {
           </label>
 
           <label className={css.filterStyle}>
-            <Field type="checkbox" name="tv" className={css.hiddenCheckbox} />
+            <Field type="checkbox" name="TV" className={css.hiddenCheckbox} />
             <FiTv className={css.iconFilterStyle} />
             <span>TV</span>
           </label>
@@ -101,8 +105,8 @@ export const Setting = () => {
           <label className={css.filterStyle}>
             <Field
               type="radio"
-              name="vehicleType"
-              value="Van"
+              name="type"
+              value="panelTruck"
               className={css.hiddenRadio}
             />
             <TbCamper className={css.iconCamperStyle} />
@@ -112,8 +116,8 @@ export const Setting = () => {
           <label className={css.filterStyle}>
             <Field
               type="radio"
-              name="vehicleType"
-              value="Fully Integrated"
+              name="type"
+              value="fullyIntegrated"
               className={css.hiddenRadio}
             />
             <FaCaravan className={css.iconCamperStyle} />
@@ -123,8 +127,8 @@ export const Setting = () => {
           <label className={css.filterStyle}>
             <Field
               type="radio"
-              name="vehicleType"
-              value="Alcove"
+              name="type"
+              value="alcove"
               className={css.hiddenRadio}
             />
             <RiCaravanLine className={css.iconCamperStyle} />
