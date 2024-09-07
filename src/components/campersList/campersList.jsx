@@ -7,7 +7,7 @@ import {
   selectPage,
 } from "../../redux/campers/selectors.js";
 import { Campers } from "../campers/campers";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { HeartsBarLoader } from "../loader/heartsBar/heartsBar";
 import { changeFilter } from "../../redux/filter/filtersSlice.js";
 import { getStartCampers } from "../../redux/campers/operations.js";
@@ -16,6 +16,7 @@ import { incrementPage } from "../../redux/campers/campersSlice.js";
 const CampersList = () => {
   const lastPage = useSelector(selectLastPages);
   const dispatch = useDispatch();
+  const [message, setMessage] = useState(<HeartsBarLoader />);
 
   const error = useSelector(selectError);
   const filterCampers = useSelector(selectFilteredCampers);
@@ -39,6 +40,14 @@ const CampersList = () => {
     }
   }, [dispatch, page]);
 
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setMessage("Sorry, nothing found!");
+    }, 3000);
+
+    return () => clearTimeout(timer);
+  });
+
   const initialValues = {
     location: "",
     airConditioner: false,
@@ -57,13 +66,15 @@ const CampersList = () => {
   return (
     <>
       <ul className={css.listConteiner}>
-        {error && <h3>Something went wrong!</h3>}
+        {error && (
+          <span className={css.messageText}>Something went wrong!</span>
+        )}
         {visibleCount ? (
           filterCampers.map((camper) => (
             <Campers key={camper._id} camper={camper} />
           ))
         ) : (
-          <HeartsBarLoader />
+          <span className={css.messageText}>{message}</span>
         )}
       </ul>
 
