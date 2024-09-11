@@ -1,0 +1,42 @@
+.switch {
+  display: flex;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+}
+.check {
+  position: relative;
+  display: inline-block;
+  width: 55px;
+  height: 30px;
+  background: #e44848;
+  border-radius: 23px;
+  vertical-align: text-bottom;
+  transition: all 0.3s linear;
+}
+.check::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  width: 25px;
+  height: 25px;
+  background-color: #f6f6f6;
+  border-radius: 15px;
+  transform: translate3d(2px, 2px, 0);
+  transition: all 0.2s ease-in-out;
+}
+.check:active::after {
+  width: 28px;
+  transform: translate3d(2px, 2px, 0);
+}
+.switch:active .toggler:checked + .check::after {
+  transform: translate3d(25px, 2px, 0);
+}
+.toggler {
+  display: none;
+}
+.toggler:checked + .check {
+  background-color: #5b59c5;
+}
+.toggler:checked + .check::after {
+  transform: translate3d(28px, 2px, 0);
+}
