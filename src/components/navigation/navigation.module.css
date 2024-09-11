@@ -3,9 +3,12 @@
   display: flex;
   flex-direction: row;
   gap: 40px;
-  border-bottom: 1px solid rgba(16, 24, 40, 0.2);
+  border-bottom: 1px solid var(--border-color);
   margin-bottom: 55px;
-  /* width: 1440px; */
+}
+
+.conteinerNavigation span {
+  margin: 0 25px 0 auto;
 }
 
 .navigationStyle {
@@ -13,11 +16,11 @@
   font-size: 24px;
   line-height: 125%;
   text-decoration: none;
-  color: #111;
+  color: var(--text-color);
   cursor: pointer;
 }
 
 .active {
-  border-bottom: 5px solid #e44848;
+  border-bottom: 5px solid var(--button-color);
   padding-bottom: 24px;
 }

@@ -41,7 +41,7 @@
   font-weight: 600;
   font-size: 20px;
   line-height: 125%;
-  color: #e44848;
+  color: var(--button-color);
 }
 
 .conteinerimgStyle {

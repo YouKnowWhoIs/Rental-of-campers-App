@@ -7,14 +7,16 @@
   font-weight: 500;
   font-size: 16px;
   line-height: 150%;
-  color: rgba(16, 24, 40, 0.6);
-  margin: 0 0 8px 0;
+  color: var(--text-color3);
+  margin: 0;
+  display: flex;
 }
 
 .locationInput {
   border: 0px;
   border-radius: 10px;
-  background-color: #f7f7f7;
+  background-color: var(--dt-bg-color);
+  color: var(--text-color);
   margin-bottom: 32px;
   padding-left: 50px;
   width: 250px;
@@ -38,7 +40,7 @@
 }
 
 .styleSpan {
-  border-bottom: 1px solid rgba(16, 24, 40, 0.1);
+  border-bottom: 1px solid var(--border-color);
   padding-bottom: 24px;
 }
 
@@ -56,7 +58,7 @@
 }
 
 .filterStyle {
-  border: 1px solid rgba(16, 24, 40, 0.1);
+  border: 1px solid var(--border-color);
   border-radius: 10px;
   text-align: center;
   font-weight: 500;
@@ -64,15 +66,15 @@
   line-height: 125%;
   width: 93px;
   height: 85px;
-  background-color: #fff;
+  background-color: var(--bg-color);
   cursor: pointer;
 }
 .filterStyle:hover {
-  background-color: #f7f7f7;
+  background-color: var(--dt-bg-color);
 }
 label:has(input[type="checkbox"]:checked),
 label:has(input[type="radio"]:checked) {
-  border-color: #e44848;
+  border-color: var(--button-color);
 }
 
 .iconFilterStyle {
@@ -88,14 +90,14 @@ label:has(input[type="radio"]:checked) {
 }
 
 .buttonStyle {
-  border: 1px solid #e44848;
+  border: 1px solid var(--button-color);
   border-radius: 200px;
   padding: 16px 40px;
   margin-top: 64px;
   width: 166px;
   height: 56px;
   color: #fff;
-  background-color: #e44848;
+  background-color: var(--button-color);
   font-weight: 500;
   font-size: 16px;
   line-height: 150%;
@@ -103,5 +105,5 @@ label:has(input[type="radio"]:checked) {
   cursor: pointer;
 }
 .buttonStyle:hover {
-  background-color: #d84343;
+  background-color: var(--hover-button-color);
 }

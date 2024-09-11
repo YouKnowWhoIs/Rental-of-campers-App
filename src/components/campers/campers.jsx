@@ -91,7 +91,7 @@ export const Campers = ({ camper }) => {
   }, [camper]);
 
   return (
-    <div className={css.conyeinerCamper}>
+    <div className={css.conteinerCamper}>
       <li className={css.list}>
         <img
           src={camper.gallery[0]}
