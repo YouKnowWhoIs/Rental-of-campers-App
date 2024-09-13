@@ -7,7 +7,7 @@ import { FaWind } from "react-icons/fa";
 import { TbCamper } from "react-icons/tb";
 import { RiCaravanLine } from "react-icons/ri";
 import { FaCaravan } from "react-icons/fa";
-import css from "./settings.module.css";
+import css from "./Settings.module.css";
 import { Field, Form, Formik } from "formik";
 import { useDispatch } from "react-redux";
 import { changeFilter } from "../../redux/filter/filtersSlice";

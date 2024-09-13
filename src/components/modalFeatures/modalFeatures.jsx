@@ -8,8 +8,8 @@ import { TbAirConditioning } from "react-icons/tb";
 import { PiDiscDuotone } from "react-icons/pi";
 import { MdOutlineRadio } from "react-icons/md";
 import { MdOutlineMicrowave } from "react-icons/md";
-import css from "./modalFeatures.module.css";
-import { BookForm } from "../form/bookForm";
+import css from "./ModalFeatures.module.css";
+import { BookForm } from "../BookForm/BookForm.jsx";
 
 export const ModuleFeatures = ({ camper }) => {
   return (

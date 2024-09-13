@@ -7,10 +7,10 @@ import { MdOutlineLocalGasStation } from "react-icons/md";
 import { TbToolsKitchen2 } from "react-icons/tb";
 import { IoBedOutline } from "react-icons/io5";
 import { FaWind } from "react-icons/fa";
-import css from "./campers.module.css";
+import css from "./Campers.module.css";
 import { FaRegHeart, FaHeart } from "react-icons/fa";
 
-import Modals from "../modals/modals";
+import Modals from "../Modals/Modals";
 
 export const Campers = ({ camper }) => {
   const [isModalOpen, setIsModalOpen] = useState(false);

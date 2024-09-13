@@ -1,8 +1,8 @@
-import css from "./favoritesPage.module.css";
-import { Navigation } from "../../components/navigation/navigation";
+import css from "./FavoritesPage.module.css";
+import { Navigation } from "../../components/Navigation/Navigation.jsx";
 import { useEffect, useState } from "react";
-import { Campers } from "../../components/campers/campers";
-import { HeartsBarLoader } from "../../components/loader/heartsBar/heartsBar";
+import { Campers } from "../../components/Campers/Campers.jsx";
+import { HeartsBarLoader } from "../../components/Loader/heartsBar/HeartsBar";
 
 const FavoritesPage = () => {
   const [isFavoriteList, setIsFavoriteList] = useState([]);

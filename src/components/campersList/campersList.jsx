@@ -1,14 +1,14 @@
 import { useDispatch, useSelector } from "react-redux";
-import css from "./campersList.module.css";
+import css from "./CampersList.module.css";
 import {
   selectError,
   selectFilteredCampers,
   selectLastPages,
   selectPage,
 } from "../../redux/campers/selectors.js";
-import { Campers } from "../campers/campers";
+import { Campers } from "../Campers/Campers.jsx";
 import { useEffect, useState } from "react";
-import { HeartsBarLoader } from "../loader/heartsBar/heartsBar";
+import { HeartsBarLoader } from "../Loader/heartsBar/HeartsBar.jsx";
 import { changeFilter } from "../../redux/filter/filtersSlice.js";
 import { getStartCampers } from "../../redux/campers/operations.js";
 import { incrementPage } from "../../redux/campers/campersSlice.js";

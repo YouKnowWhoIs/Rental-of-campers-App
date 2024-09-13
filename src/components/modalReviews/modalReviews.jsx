@@ -1,6 +1,6 @@
 import { FaStar } from "react-icons/fa";
-import css from "./modalReviews.module.css";
-import { BookForm } from "../form/bookForm";
+import css from "./ModalReviews.module.css";
+import { BookForm } from "../BookForm/BookForm.jsx";
 
 export const ModalReviews = ({ camper }) => {
   const renderStarRating = (rating) => {

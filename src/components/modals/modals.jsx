@@ -1,10 +1,10 @@
-import css from "./modals.module.css";
+import css from "./Modals.module.css";
 import { IoClose } from "react-icons/io5";
 import { FaStar } from "react-icons/fa6";
 import { CiLocationOn } from "react-icons/ci";
 import { useState } from "react";
-import { ModuleFeatures } from "../modalFeatures/modalFeatures";
-import { ModalReviews } from "../modalReviews/modalReviews";
+import { ModuleFeatures } from "../modalFeatures/modalFeatures.jsx";
+import { ModalReviews } from "../ModalReviews/ModalReviews.jsx";
 
 const Modals = ({
   camper,

@@ -1,6 +1,6 @@
-import css from "./homePage.module.css";
-import { Navigation } from "../../components/navigation/navigation";
-import { HomeWelkome } from "../../components/homeWelcome/homeWelkome";
+import css from "./HomePage.module.css";
+import { Navigation } from "../../components/Navigation/Navigation.jsx";
+import { HomeWelkome } from "../../components/HomeWelcome/HomeWelkome.jsx";
 
 const HomePage = () => {
   return (

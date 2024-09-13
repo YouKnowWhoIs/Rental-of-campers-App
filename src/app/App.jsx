@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { Navigate, Route, Routes } from "react-router-dom";
 import "./App.css";
 import { fetchCampers } from "../redux/campers/operations.js";
-import { ProgressBarLoader } from "../components/loader/progressBar/progressBar.jsx";
+import { ProgressBarLoader } from "../components/Loader/ProgressBar/ProgressBar.jsx";
 import { selectPage } from "../redux/campers/selectors.js";
 import { changeFilter } from "../redux/filter/filtersSlice.js";
 
