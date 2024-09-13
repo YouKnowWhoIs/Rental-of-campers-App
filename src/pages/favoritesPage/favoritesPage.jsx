@@ -2,7 +2,7 @@ import css from "./FavoritesPage.module.css";
 import { Navigation } from "../../components/Navigation/Navigation.jsx";
 import { useEffect, useState } from "react";
 import { Campers } from "../../components/Campers/Campers.jsx";
-import { HeartsBarLoader } from "../../components/Loader/heartsBar/HeartsBar";
+import { HeartsBarLoader } from "../../components/Loader/HeartsBar/HeartsBar.jsx";
 
 const FavoritesPage = () => {
   const [isFavoriteList, setIsFavoriteList] = useState([]);

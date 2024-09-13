@@ -7,11 +7,11 @@ import { ProgressBarLoader } from "../components/Loader/ProgressBar/ProgressBar.
 import { selectPage } from "../redux/campers/selectors.js";
 import { changeFilter } from "../redux/filter/filtersSlice.js";
 
-const HomePage = lazy(() => import("../pages/homePage/homePage.jsx"));
+const HomePage = lazy(() => import("../Pages/HomePage/HomePage.jsx"));
 const FavoritesPage = lazy(() =>
-  import("../pages/favoritesPage/favoritesPage.jsx")
+  import("../Pages/FavoritesPage/FavoritesPage.jsx")
 );
-const CatalogPage = lazy(() => import("../pages/catalogPage/catalogPage.jsx"));
+const CatalogPage = lazy(() => import("../Pages/CatalogPage/CatalogPage.jsx"));
 
 function App() {
   const dispatch = useDispatch();

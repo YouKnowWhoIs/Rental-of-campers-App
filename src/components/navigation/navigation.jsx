@@ -1,7 +1,7 @@
 import { NavLink } from "react-router-dom";
 import css from "./Navigation.module.css";
-import { Toggle } from "../toggle/toggle";
-import { ThemeContext, themes } from "../themeContext/TheamContext.js";
+import { Toggle } from "../Toggle/Toggle.jsx";
+import { ThemeContext, themes } from "../ThemeContext/TheamContext.js";
 
 export const Navigation = () => {
   return (

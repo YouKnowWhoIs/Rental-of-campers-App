@@ -1,4 +1,4 @@
-import css from "./toggle.module.css";
+import css from "./Toggle.module.css";
 
 export const Toggle = ({ value, onChange }) => {
   return (

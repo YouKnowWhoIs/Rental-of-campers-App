@@ -3,7 +3,7 @@ import { IoClose } from "react-icons/io5";
 import { FaStar } from "react-icons/fa6";
 import { CiLocationOn } from "react-icons/ci";
 import { useState } from "react";
-import { ModuleFeatures } from "../modalFeatures/modalFeatures.jsx";
+import { ModuleFeatures } from "../ModalFeatures/ModalFeatures.jsx";
 import { ModalReviews } from "../ModalReviews/ModalReviews.jsx";
 
 const Modals = ({
