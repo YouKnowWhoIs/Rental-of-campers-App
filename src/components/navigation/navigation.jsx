@@ -1,5 +1,7 @@
 import { NavLink } from "react-router-dom";
 import css from "./Navigation.module.css";
+import { Toggle } from "../toggle/toggle";
+import { ThemeContext, themes } from "../themeContext/TheamContext.js";
 
 export const Navigation = () => {
   return (
@@ -28,6 +30,19 @@ export const Navigation = () => {
       >
         Favorites
       </NavLink>
+      <span>
+        <ThemeContext.Consumer>
+          {({ theme, setTheme }) => (
+            <Toggle
+              onChange={() => {
+                if (theme === themes.light) setTheme(themes.dark);
+                if (theme === themes.dark) setTheme(themes.light);
+              }}
+              value={theme === themes.dark}
+            />
+          )}
+        </ThemeContext.Consumer>
+      </span>
     </nav>
   );
 };

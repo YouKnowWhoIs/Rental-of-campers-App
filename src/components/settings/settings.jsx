@@ -33,8 +33,8 @@ export const Settings = () => {
   return (
     <Formik initialValues={initialValues} onSubmit={handleSubmit}>
       <Form className={css.settingConteiner}>
-        <label className={css.textStyle}>
-          Location
+        <label>
+          <span className={css.textStyle}>Location</span>
           <CiLocationOn className={css.iconLocation} />
           <Field
             className={css.locationInput}

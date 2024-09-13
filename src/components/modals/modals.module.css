@@ -9,7 +9,7 @@
 }
 
 .conteinerModal {
-  background-color: #fff;
+  background-color: var(--bg-color2);
   padding: 40px;
   border-radius: 20px;
   width: 982px;
@@ -50,7 +50,8 @@
 .buttonIconClose {
   float: right;
   border: 0px;
-  background-color: #fff;
+  background-color: var(--bg-color2);
+  color: var(--text-color);
   margin: 0;
   padding: 0;
   cursor: pointer;
@@ -82,7 +83,7 @@
   margin: 40px 0 24px 0;
   display: flex;
   gap: 40px;
-  border-bottom: 1px solid rgba(16, 24, 40, 0.2);
+  border-bottom: 1px solid var(--border-color);
 }
 
 .additionalDetails {
@@ -93,6 +94,6 @@
 }
 
 .active {
-  border-bottom: 5px solid #e44848;
+  border-bottom: 5px solid var(--button-color);
   padding-bottom: 24px;
 }
